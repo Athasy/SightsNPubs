@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SightsNPubs</string>
     <string name="action_settings">Settings</string>
+    <string name="new_sight_item">New item</string>
+    <string name="ok">Ok?</string>
+    <string name="cancel">Cancel</string>
 </resources>

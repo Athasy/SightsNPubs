@@ -1,15 +1,31 @@
 package com.bme.athasy.sightsnpubs;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 public class ListActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private SightAdapter adapter;
+
+
+    private void initRecyclerView(){
+        recyclerView = (RecyclerView) findViewById(R.id.ListRecyclerView);
+        adapter = new SightAdapter();
+        loadItemsInBackground();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +42,7 @@ public class ListActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        initRecyclerView();
     }
 
     @Override
@@ -48,5 +65,20 @@ public class ListActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadItemsInBackground(){
+        new AsyncTask<Void, Void, List<SightItem>>(){
+            @Override
+            protected List<SightItem> doInBackground(Void... voids) {
+                return SightItem.listAll(SightItem.class);
+            }
+
+            @Override
+            protected void onPostExecute(List<SightItem> sightItems) {
+                super.onPostExecute(sightItems);
+                adapter.update(sightItems);
+            }
+        }.execute();
     }
 }
