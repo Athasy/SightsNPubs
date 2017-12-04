@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NewItemDialogFragment.INewItemDialogListener{
     private RecyclerView recyclerView;
     private SightAdapter adapter;
 
@@ -34,12 +34,11 @@ public class ListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.AddNewSight);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                new NewItemDialogFragment().show(getSupportFragmentManager(), NewItemDialogFragment.TAG);
             }
         });
         initRecyclerView();
@@ -67,8 +66,9 @@ public class ListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void loadItemsInBackground(){
-        new AsyncTask<Void, Void, List<SightItem>>(){
+    private void loadItemsInBackground() {
+        new AsyncTask<Void, Void, List<SightItem>>() {
+
             @Override
             protected List<SightItem> doInBackground(Void... voids) {
                 return SightItem.listAll(SightItem.class);
@@ -80,5 +80,10 @@ public class ListActivity extends AppCompatActivity {
                 adapter.update(sightItems);
             }
         }.execute();
+    }
+
+    @Override
+    public void onItemCreated(SightItem newItem) {
+        adapter.addItem(newItem);
     }
 }

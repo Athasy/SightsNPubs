@@ -27,8 +27,7 @@ public class SightItem extends SugarRecord {
 
     public String name;
     public String description;
-    public String type;
     public Category category;
-    public float verticalCoord;
-    public float horizontalCoord;
+    public float latitudeCoord;
+    public float longitudeCoord;
 }

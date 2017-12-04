@@ -12,7 +12,7 @@
         android:text="@string/name"/>
 
     <EditText
-        android:id="@+id/ShoppingItemNameEditText"
+        android:id="@+id/SightItemNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -23,7 +23,7 @@
         android:text="@string/description"/>
 
     <EditText
-        android:id="@+id/ShoppingItemDescriptionEditText"
+        android:id="@+id/SightItemDescriptionEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -34,7 +34,7 @@
         android:text="@string/category"/>
 
     <Spinner
-        android:id="@+id/ShoppingItemCategorySpinner"
+        android:id="@+id/SightItemCategorySpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -42,20 +42,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="@string/estimated_price"/>
+        android:text="@string/latitude_coordinates"/>
 
     <EditText
-        android:id="@+id/ShoppingItemEstimatedPriceEditText"
+        android:id="@+id/SightItemLatitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"/>
 
-    <CheckBox
-        android:id="@+id/ShoppingItemIsPurchasedCheckBox"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dip"
+        android:text="@string/longitude_coordinate"/>
+
+    <EditText
+        android:id="@+id/SightItemLongitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/already_purchased"/>
-
-    <!-- TODO: new item fragment UI -->
+        android:inputType="numberDecimal"/>
 
 </LinearLayout>

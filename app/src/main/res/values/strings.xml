@@ -4,4 +4,13 @@
     <string name="new_sight_item">New item</string>
     <string name="ok">Ok?</string>
     <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="latitude_coordinates">Latitude coordinate</string>
+    <string name="longitude_coordinate">Longitude coordinate</string>
+    <string name="category">Category</string>
+    <string-array name="category_list">
+        <item>Pub</item>
+        <item>Sight</item>
+    </string-array>
 </resources>

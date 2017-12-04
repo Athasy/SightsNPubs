@@ -35,7 +35,7 @@ public class SightAdapter extends RecyclerView.Adapter<SightAdapter.SightViewHol
     public void onBindViewHolder(SightViewHolder holder, int position) {
         SightItem item = items.get(position);
         holder.nameTextView.setText(item.name);
-        holder.typeTextView.setText(item.type);
+        holder.descriptionTextView.setText(item.description);
         holder.iconImageButton.setImageResource(getImageResource(item.category));
     }
 
@@ -75,14 +75,14 @@ public class SightAdapter extends RecyclerView.Adapter<SightAdapter.SightViewHol
 
         ImageButton iconImageButton;
         TextView nameTextView;
-        TextView typeTextView;
+        TextView descriptionTextView;
         Button removeButton;
 
         public SightViewHolder(View itemView) {
             super(itemView);
             iconImageButton = (ImageButton) itemView.findViewById(R.id.ItemIconImageButton);
             nameTextView = (TextView) itemView.findViewById(R.id.ItemNameTextView);
-            typeTextView = (TextView) itemView.findViewById(R.id.ItemTypeTextView);
+            descriptionTextView = (TextView) itemView.findViewById(R.id.ItemDescriptionTextView);
             removeButton = (Button) itemView.findViewById(R.id.DeleteButton);
         }
     }

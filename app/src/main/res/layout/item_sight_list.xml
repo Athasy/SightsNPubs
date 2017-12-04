@@ -34,11 +34,11 @@
             tools:text="Name" />
 
         <TextView
-            android:id="@+id/ItemTypeTextView"
+            android:id="@+id/ItemDescriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:text="Type" />
+            tools:text="Description" />
 
     </LinearLayout>
 
